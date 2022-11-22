@@ -27,17 +27,11 @@ function authenticationMiddleware(req, res, next) {
 }
 
 const loginRouter = require('./routes/login')
-const usersRouter = require('./auth')
-const indexRouter = require('./routes/login')
+const usersRouter = require('./routes/users')
+const indexRouter = require('./routes/index')
 
 app.use('/login', loginRouter);
 app.use('/users', authenticationMiddleware, usersRouter);
 app.use('/', authenticationMiddleware,  indexRouter);
-
-
-
-
-
-
 
 module.exports = app;
